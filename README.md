@@ -1,6 +1,6 @@
 # tdk-tutorial-databases
 
-This docker-compose contains infrastructure needed to work with [TDK Tutorials](https://docs.synthesized.io/tdk/latest/user_guide/tutorial/configuration
+This docker-compose contains infrastructure needed to work with [TDK Tutorials](https://docs.synthesized.io/tdk/latest/user_guide/tutorial/configuration)
 
 User `docker-compose up` to run this demo.
 
