@@ -4,4 +4,4 @@ This docker-compose contains infrastructure needed to work with [TDK Tutorials](
 
 User `docker-compose up` to run this demo.
 
-dbAdmin is running at http://localhost:8888. Password is `postgres` everywhere.
+`dbAdmin` is running at http://localhost:8888. Password is `postgres` everywhere.
