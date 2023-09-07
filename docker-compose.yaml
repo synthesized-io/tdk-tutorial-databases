@@ -55,8 +55,10 @@ services:
     image: docker/whalesay
     command: >
       cowsay
-        "Both the source and target databases have been started on port 6000 and 6001 respectively, and are ready for TDK exercises!
-         To check it out with pgAdmin, simply go to this link: http://localhost:8888 and use postgres as the password."
+        "Both the source and target databases have been started on
+         port 6000 and 6001 respectively, and are ready for TDK exercises!
+         To check it out with pgAdmin, simply go to this link:
+         http://localhost:8888 and use postgres as the password."
     depends_on:
       input_db:
         condition: service_healthy
