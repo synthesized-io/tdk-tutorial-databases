@@ -27,14 +27,6 @@ jobs:
         run: |
           yamllint -sd relaxed .
 
-      - name: Install wait4x
-        run: |
-          curl -#LO https://github.com/$wait4x
-          tar --one-top-level -xvf wait4x-linux-amd64.tar.gz
-          cp ./wait4x-linux-amd64/wait4x /usr/local/bin/wait4x
-        env:
-          wait4x: atkrad/wait4x/releases/latest/download/wait4x-linux-amd64.tar.gz
-
       - name: Build docker-compose
         run: |
           docker-compose pull
