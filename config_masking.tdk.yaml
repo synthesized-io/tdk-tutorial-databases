@@ -2,6 +2,7 @@ default_config:
   mode: MASKING
 
 table_truncation_mode: "TRUNCATE"
+# TODO The mode should be changed to "DROP_AND_CREATE" with the new TDK version
 schema_creation_mode: "DO_NOT_CREATE"
 cycle_resolution_strategy: "DELETE_NOT_REQUIRED"
 safety_mode: "RELAXED"

@@ -58,7 +58,7 @@ services:
         "Both the source and target databases have been started on
          port 6000 and 6001 respectively, and are ready for TDK exercises!
          To check it out with pgAdmin, simply go to this link:
-         http://localhost:8888 and use postgres as the password."
+         http://localhost:8888 and use 'postgres' as the password."
     depends_on:
       input_db:
         condition: service_healthy
@@ -66,3 +66,10 @@ services:
         condition: service_healthy
       pgadmin:
         condition: service_started
+
+
+  check:
+    container_name: check
+    image: sodadata/soda-core
+    volumes:
+      - ./soda:/sodacl

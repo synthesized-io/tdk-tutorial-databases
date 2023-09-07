@@ -40,14 +40,7 @@ jobs:
           docker-compose pull
 
       - name: Run the docker-compose
-        run: docker-compose up -d
-
-      - name: Wait for databases
-        run: |
-          wait4x postgresql $url:6000/postgres?sslmode=disable
-          wait4x postgresql $url:6001/postgres?sslmode=disable
-        env:
-          url: postgres://postgres:postgres@localhost
+        run: docker-compose run databases
 
       - name: Verify input data
         run: >
