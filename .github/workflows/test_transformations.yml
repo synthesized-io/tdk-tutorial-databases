@@ -21,4 +21,5 @@ jobs:
       - name: Run the workflow
         run: |
           export CONFIG_FILE=config_masking.tdk.yaml
-          docker-compose -f docker-compose.yaml -f docker-compose-tdk.yaml run tdk
+          docker-compose -f docker-compose.yaml -f docker-compose-tdk.yaml \
+          run tdk
