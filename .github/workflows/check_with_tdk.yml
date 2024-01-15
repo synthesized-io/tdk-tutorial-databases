@@ -1,0 +1,25 @@
+name: check_with_tdk
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  masking:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build docker-compose
+        run: |
+          docker-compose -f docker-compose.yaml -f docker-compose-tdk.yaml pull
+          docker-compose -f docker-compose.yaml -f docker-compose-tdk.yaml build
+
+      - name: Run the workflow
+        run: |
+          export CONFIG_FILE=config_masking.tdk.yaml
+          docker-compose -f docker-compose.yaml -f docker-compose-tdk.yaml \
+          run tdk

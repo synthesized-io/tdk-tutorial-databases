@@ -27,27 +27,12 @@ jobs:
         run: |
           yamllint -sd relaxed .
 
-      - name: Install wait4x
-        run: |
-          curl -#LO https://github.com/$wait4x
-          tar --one-top-level -xvf wait4x-linux-amd64.tar.gz
-          cp ./wait4x-linux-amd64/wait4x /usr/local/bin/wait4x
-        env:
-          wait4x: atkrad/wait4x/releases/latest/download/wait4x-linux-amd64.tar.gz
-
       - name: Build docker-compose
         run: |
           docker-compose pull
 
       - name: Run the docker-compose
-        run: docker-compose up -d
-
-      - name: Wait for databases
-        run: |
-          wait4x postgresql $url:6000/postgres?sslmode=disable
-          wait4x postgresql $url:6001/postgres?sslmode=disable
-        env:
-          url: postgres://postgres:postgres@localhost
+        run: docker-compose run databases
 
       - name: Verify input data
         run: >
