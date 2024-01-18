@@ -66,10 +66,3 @@ services:
         condition: service_healthy
       pgadmin:
         condition: service_started
-
-
-  check:
-    container_name: check
-    image: sodadata/soda-core
-    volumes:
-      - ./soda:/sodacl
