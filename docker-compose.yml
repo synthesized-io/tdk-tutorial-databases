@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+
+  input_db:
+    container_name: input_db
+    image: synthesizedio/pagila
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports: [ "6000:5432" ]
+
+
+  output_db:
+    container_name: output_db
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+    ports: [ "6001:5432" ]
