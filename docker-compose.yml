@@ -37,19 +37,6 @@ services:
       retries: 30
 
 
-  pgadmin:
-    container_name: pgadmin
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
-      PGADMIN_DEFAULT_PASSWORD: postgres
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
-    volumes:
-      - ./pgadmin/servers.json:/pgadmin4/servers.json
-    ports:
-      - "8888:80"
-
-
   databases:
     container_name: databases
     image: docker/whalesay
@@ -64,5 +51,3 @@ services:
         condition: service_healthy
       output_db:
         condition: service_healthy
-      pgadmin:
-        condition: service_started
